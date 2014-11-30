@@ -28,7 +28,7 @@
 		android:allowBackup="false">
 		<activity
 			android:label="@string/app_name"
-			android:name="com.ripped.pixeldungeon.PixelDungeon"
+			android:name="com.ripped.rippedpd.PixelDungeon"
 			android:screenOrientation="portrait">
 			<intent-filter >
 				<action android:name="android.intent.action.MAIN" />
