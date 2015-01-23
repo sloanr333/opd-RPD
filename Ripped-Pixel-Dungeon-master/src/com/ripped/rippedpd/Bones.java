@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import com.opd.opdlib.OPDGame;
 import com.ripped.rippedpd.items.Gold;
 import com.ripped.rippedpd.items.Item;
 import com.ripped.rippedpd.items.rings.Ring;
@@ -70,7 +71,7 @@ public class Bones {
 		bundle.put( ITEM, item );
 		
 		try {
-			OutputStream output = Game.instance.openFileOutput( BONES_FILE, Game.MODE_PRIVATE );
+			OutputStream output = OPDGame.openDatOutput( BONES_FILE, Game.MODE_PRIVATE );
 			Bundle.write( bundle, output );
 			output.close();
 		} catch (IOException e) {
@@ -82,7 +83,7 @@ public class Bones {
 		if (depth == -1) {
 			
 			try {
-				InputStream input = Game.instance.openFileInput( BONES_FILE ) ;
+				InputStream input = OPDGame.openDatInput( BONES_FILE ) ;
 				Bundle bundle = Bundle.read( input );
 				input.close();
 				
@@ -97,7 +98,7 @@ public class Bones {
 			
 		} else {
 			if (depth == Dungeon.depth) {
-				Game.instance.deleteFile( BONES_FILE );
+				OPDGame.deleteDatFile( BONES_FILE );
 				depth = 0;
 				
 				if (!item.stackable) {

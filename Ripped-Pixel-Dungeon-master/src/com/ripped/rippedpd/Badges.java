@@ -26,6 +26,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
+import com.opd.opdlib.OPDGame;
 import com.ripped.rippedpd.actors.mobs.Acidic;
 import com.ripped.rippedpd.actors.mobs.Albino;
 import com.ripped.rippedpd.actors.mobs.Bandit;
@@ -216,7 +217,7 @@ public class Badges {
 	public static void loadGlobal() {
 		if (global == null) {
 			try {
-				InputStream input = Game.instance.openFileInput( BADGES_FILE );
+				InputStream input = OPDGame.openDatInput( BADGES_FILE );
 				Bundle bundle = Bundle.read( input );
 				input.close();
 				
@@ -235,7 +236,7 @@ public class Badges {
 			store( bundle, global );
 			
 			try {
-				OutputStream output = Game.instance.openFileOutput( BADGES_FILE, Game.MODE_PRIVATE );
+				OutputStream output = OPDGame.openDatOutput( BADGES_FILE, Game.MODE_PRIVATE );
 				Bundle.write( bundle, output );
 				output.close();
 				saveNeeded = false;

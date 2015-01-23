@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 
+import com.opd.opdlib.OPDGame;
 import com.ripped.rippedpd.actors.Actor;
 import com.ripped.rippedpd.actors.Char;
 import com.ripped.rippedpd.actors.buffs.Amok;
@@ -450,7 +451,7 @@ public class Dungeon {
 			Badges.saveLocal( badges );
 			bundle.put( BADGES, badges );
 			
-			OutputStream output = Game.instance.openFileOutput( fileName, Game.MODE_PRIVATE );
+			OutputStream output = OPDGame.openDatOutput( fileName, Game.MODE_PRIVATE );
 			Bundle.write( bundle, output );
 			output.close();
 			
@@ -464,7 +465,7 @@ public class Dungeon {
 		Bundle bundle = new Bundle();
 		bundle.put( LEVEL, level );
 		
-		OutputStream output = Game.instance.openFileOutput( 
+		OutputStream output = OPDGame.openDatOutput( 
 			Utils.format( depthFile( hero.heroClass ), depth ), Game.MODE_PRIVATE );
 		Bundle.write( bundle, output );
 		output.close();
@@ -581,7 +582,7 @@ public class Dungeon {
 		Dungeon.level = null;
 		Actor.clear();
 		
-		InputStream input = Game.instance.openFileInput( Utils.format( depthFile( cl ), depth ) ) ;
+		InputStream input = OPDGame.openDatInput( Utils.format( depthFile( cl ), depth ) ) ;
 		Bundle bundle = Bundle.read( input );
 		input.close();
 		
@@ -590,7 +591,7 @@ public class Dungeon {
 	
 	public static void deleteGame( HeroClass cl, boolean deleteLevels ) {
 		
-		Game.instance.deleteFile( gameFile( cl ) );
+		OPDGame.deleteDatFile( gameFile( cl ) );
 		
 		if (deleteLevels) {
 			int depth = 1;
@@ -604,7 +605,7 @@ public class Dungeon {
 	
 	public static Bundle gameBundle( String fileName ) throws IOException {
 		
-		InputStream input = Game.instance.openFileInput( fileName );
+		InputStream input = OPDGame.openDatInput( fileName );
 		Bundle bundle = Bundle.read( input );
 		input.close();
 		
