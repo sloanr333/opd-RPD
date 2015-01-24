@@ -19,6 +19,7 @@ package com.ripped.rippedpd.windows;
 
 import java.io.IOException;
 
+import com.opd.opdlib.OPDGame;
 import com.ripped.rippedpd.Dungeon;
 import com.ripped.rippedpd.scenes.GameScene;
 import com.ripped.rippedpd.scenes.InterlevelScene;
@@ -97,7 +98,12 @@ public class WndGame extends Window {
 		addButton( new RedButton( TXT_EXIT ) {
 			@Override
 			protected void onClick() {
-				Game.instance.finish();
+				try {
+					Dungeon.saveAll();
+				} catch (IOException e) {
+					//
+				}
+				OPDGame.quitSubGame();
 			}
 		} );
 		

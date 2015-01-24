@@ -17,7 +17,6 @@
  */
 package com.ripped.rippedpd.scenes;
 
-import com.opd.opdlib.OPDGame;
 import com.ripped.rippedpd.Assets;
 import com.ripped.rippedpd.effects.BannerSprites;
 import com.ripped.rippedpd.effects.Fireball;
