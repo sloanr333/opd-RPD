@@ -408,7 +408,7 @@ public class Dungeon {
 		try {
 			Bundle bundle = new Bundle();
 			
-			bundle.put( VERSION, Game.version );
+			bundle.put(VERSION, OPDGame.currentSubGame().version );
 			bundle.put( HERO, hero );
 			bundle.put( GOLD, gold );
 			bundle.put( DEPTH, depth );

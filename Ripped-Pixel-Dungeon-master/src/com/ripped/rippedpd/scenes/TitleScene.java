@@ -17,6 +17,7 @@
  */
 package com.ripped.rippedpd.scenes;
 
+import com.opd.opdlib.OPDGame;
 import com.ripped.rippedpd.Assets;
 import com.ripped.rippedpd.effects.BannerSprites;
 import com.ripped.rippedpd.effects.Fireball;
@@ -101,16 +102,11 @@ public class TitleScene extends PixelScene {
 		btnHighscores.setPos( w / 2, btnPlay.top() );
 		add( btnHighscores );
 		
-		BitmapText version = new BitmapText( "v " + Game.version, font1x );
-		version.measure();
-		version.hardlight( 0x888888 );
-		version.x = w - version.width();
-		version.y = h - version.height();
-		add( version );
-		
 		PrefsButton btnPrefs = new PrefsButton();
 		btnPrefs.setPos( w - btnPrefs.width() - 1, 1 );
 		add( btnPrefs );
+		
+		displayVersion(w, h);
 		
 		fadeIn();
 	}
