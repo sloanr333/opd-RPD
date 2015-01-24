@@ -595,7 +595,7 @@ public class Dungeon {
 		
 		if (deleteLevels) {
 			int depth = 1;
-			while (Game.instance.deleteFile( Utils.format( depthFile( cl ), depth ) )) {
+			while (OPDGame.deleteDatFile( Utils.format( depthFile( cl ), depth ) )) {
 				depth++;
 			}
 		}
