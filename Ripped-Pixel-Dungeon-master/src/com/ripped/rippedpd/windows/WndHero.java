@@ -19,6 +19,7 @@ package com.ripped.rippedpd.windows;
 
 import java.util.Locale;
 
+import com.opd.opdlib.OPDScene;
 import com.ripped.rippedpd.Assets;
 import com.ripped.rippedpd.Dungeon;
 import com.ripped.rippedpd.Statistics;
@@ -101,6 +102,8 @@ public class WndHero extends WndTabbed {
 		private float pos;
 		
 		public StatsTab() {
+
+			OPDScene.displayVersion(this, WIDTH, 0);
 			
 			Hero hero = Dungeon.hero; 
 

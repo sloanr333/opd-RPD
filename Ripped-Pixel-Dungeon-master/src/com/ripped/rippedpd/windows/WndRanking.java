@@ -19,6 +19,7 @@ package com.ripped.rippedpd.windows;
 
 import java.util.Locale;
 
+import com.opd.opdlib.OPDScene;
 import com.ripped.rippedpd.Assets;
 import com.ripped.rippedpd.Badges;
 import com.ripped.rippedpd.Dungeon;
@@ -159,6 +160,8 @@ public class WndRanking extends WndTabbed {
 		public StatsTab() {
 			super();
 			
+			OPDScene.displayVersion(this, WIDTH, 0);
+			
 			String heroClass = Dungeon.hero.className();
 			
 			IconTitle title = new IconTitle();
@@ -212,6 +215,8 @@ public class WndRanking extends WndTabbed {
 		public ItemsTab() {
 			super();
 			
+			OPDScene.displayVersion(this, WIDTH, 0);
+			
 			Belongings stuff = Dungeon.hero.belongings;
 			if (stuff.weapon != null) {
 				addItem( stuff.weapon );
@@ -252,6 +257,8 @@ public class WndRanking extends WndTabbed {
 		
 		public BadgesTab() {
 			super();
+			
+			OPDScene.displayVersion(this, WIDTH, 0);
 			
 			camera = WndRanking.this.camera;
 			
